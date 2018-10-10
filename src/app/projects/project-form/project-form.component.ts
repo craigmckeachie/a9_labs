@@ -12,4 +12,7 @@ export class ProjectFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCancelClick(event: Event) {
+    event.preventDefault();
+  }
 }
