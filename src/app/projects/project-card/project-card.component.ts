@@ -15,4 +15,10 @@ export class ProjectCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  onEditClick(project: Project, event: Event) {
+    event.preventDefault();
+    console.log(project);
+  }
+
+
 }
