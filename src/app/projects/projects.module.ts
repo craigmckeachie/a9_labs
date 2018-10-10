@@ -6,11 +6,13 @@ import { ProjectsContainerComponent } from './projects-container/projects-contai
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { ProjectFormComponent } from './project-form/project-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    ProjectsRoutingModule
+    ProjectsRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [ProjectsContainerComponent, ProjectListComponent, ProjectCardComponent, ProjectFormComponent]
 })
