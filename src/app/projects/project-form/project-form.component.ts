@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-project-form',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project-form.component.css']
 })
 export class ProjectFormComponent implements OnInit {
-
+  @Output() cancel = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {
@@ -14,5 +14,6 @@ export class ProjectFormComponent implements OnInit {
 
   onCancelClick(event: Event) {
     event.preventDefault();
+    this.cancel.emit();
   }
 }

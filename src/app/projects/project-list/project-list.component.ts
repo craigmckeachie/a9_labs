@@ -21,4 +21,7 @@ export class ProjectListComponent implements OnInit {
     console.log(this.editingProject);
   }
 
+  onCancel() {
+    this.editingProject = null;
+  }
 }
