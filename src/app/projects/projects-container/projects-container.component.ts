@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PROJECTS} from '../shared/mock-projects';
 import {Project} from '../shared/project.model';
+import {ProjectService} from '../shared/project.service';
 
 @Component({
   selector: 'app-projects-container',
@@ -9,9 +10,13 @@ import {Project} from '../shared/project.model';
 })
 export class ProjectsContainerComponent implements OnInit {
   projects: Project[] = PROJECTS;
-  constructor() { }
+
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
+    this.projectService.list().subscribe(data =>{
+      this.projects = data;
+    });
   }
 
   onSaveListItem(event: any) {
