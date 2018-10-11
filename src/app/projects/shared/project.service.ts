@@ -3,8 +3,12 @@ import {Observable, of, throwError} from 'rxjs';
 import {PROJECTS} from './mock-projects';
 import {Project} from './project.model';
 import {environment} from '../../../environments/environment';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +22,17 @@ export class ProjectService {
     return this.http.get<Project[]>(this.projectsUrl).pipe(
       catchError((error: HttpErrorResponse) => {
         console.log(error);
-        return throwError('An error occured loading the projects.');
+        return throwError('An error occurred loading the projects.');
+      })
+    );
+  }
+
+  put(project: Project): Observable<Project> {
+    const url = this.projectsUrl + project.id;
+    return this.http.put<Project>(url, project, httpOptions).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.log(error);
+        return throwError('An error occurred updating the projects.');
       })
     );
   }

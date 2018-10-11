@@ -27,10 +27,15 @@ export class ProjectsContainerComponent implements OnInit {
 
   onSaveListItem(event: any) {
     const project: Project = event.item;
-    const index = this.projects.findIndex(
-      element => element.id === project.id
+    this.projectService.put(project).subscribe(
+      updatedProject => {
+        const index = this.projects.findIndex(
+          element => element.id === project.id
+        );
+        this.projects[index] = project;
+      },
+      error => (this.errorMessage = error)
     );
-    this.projects[index] = project;
   }
 
 
