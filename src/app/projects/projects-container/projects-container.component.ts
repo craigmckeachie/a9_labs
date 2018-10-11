@@ -14,14 +14,14 @@ export class ProjectsContainerComponent implements OnInit {
   ngOnInit() {
   }
 
-  // onSaveListItem(event: any) {
-  //   const project: Project = event.item;
-  //   const index = this.projects.findIndex(
-  //     element => element.id === project.id
-  //   );
-  //   this.projects[index] = project;
-  // }
+  onSaveListItem(event: any) {
+    const project: Project = event.item;
+    const index = this.projects.findIndex(
+      element => element.id === project.id
+    );
+    this.projects[index] = project;
+  }
 
-  
+
 
 }
