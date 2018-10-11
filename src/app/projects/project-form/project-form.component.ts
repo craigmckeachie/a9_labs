@@ -11,10 +11,13 @@ export class ProjectFormComponent implements OnInit {
   @Input()
   project: Project;
   @Output()
+  save = new EventEmitter<any>();
+  @Output()
   cancel = new EventEmitter<void>();
   projectForm: FormGroup;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.projectForm = new FormGroup({
@@ -26,7 +29,23 @@ export class ProjectFormComponent implements OnInit {
 
   }
 
-  onCancelClick(event: Event) {
+  onSubmit() {
+    if (this.projectForm.invalid) {
+      return;
+    }
+
+    const updatedProject = Object.assign(
+                            {},
+                            this.project,
+                            this.projectForm.value);
+
+    this.save.emit({project: updatedProject });
+  }
+
+
+
+
+onCancelClick(event: Event) {
     event.preventDefault();
     this.cancel.emit();
   }
