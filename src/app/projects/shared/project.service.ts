@@ -4,7 +4,7 @@ import {PROJECTS} from './mock-projects';
 import {Project} from './project.model';
 import {environment} from '../../../environments/environment';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {catchError} from 'rxjs/operators';
+import {catchError, delay} from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -20,6 +20,7 @@ export class ProjectService {
 
   list(): Observable<Project[]> {
     return this.http.get<Project[]>(this.projectsUrl).pipe(
+      // delay(2000),
       catchError((error: HttpErrorResponse) => {
         console.log(error);
         return throwError('An error occurred loading the projects.');
