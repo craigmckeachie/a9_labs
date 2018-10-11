@@ -9,14 +9,20 @@ import {ProjectService} from '../shared/project.service';
   styleUrls: ['./projects-container.component.css']
 })
 export class ProjectsContainerComponent implements OnInit {
-  projects: Project[] = PROJECTS;
+  projects: Project[];
+  errorMessage: string;
 
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.projectService.list().subscribe(data => {
-      this.projects = data;
-    });
+    this.projectService.list().subscribe(
+      data => {
+        this.projects = data;
+      },
+      error => {
+        this.errorMessage = error;
+      }
+     );
   }
 
   onSaveListItem(event: any) {
