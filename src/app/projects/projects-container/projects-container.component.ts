@@ -9,7 +9,7 @@ import {ProjectService} from '../shared/project.service';
   styleUrls: ['./projects-container.component.css']
 })
 export class ProjectsContainerComponent implements OnInit {
-  projects: Project[] = PROJECTS;
+  projects: Project[];
 
   constructor(private projectService: ProjectService) { }
 
