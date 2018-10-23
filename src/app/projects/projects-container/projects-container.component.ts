@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {PROJECTS} from '../shared/mock-projects';
-import {Project} from '../shared/project.model';
-import {ProjectService} from '../shared/project.service';
+import { PROJECTS } from '../shared/mock-projects';
+import { Project } from '../shared/project.model';
+import { ProjectService } from '../shared/project.service';
 
 @Component({
   selector: 'app-projects-container',
@@ -13,7 +13,7 @@ export class ProjectsContainerComponent implements OnInit {
   errorMessage: string;
   loading: boolean;
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService) {}
 
   ngOnInit() {
     this.loading = true;
@@ -22,10 +22,11 @@ export class ProjectsContainerComponent implements OnInit {
         this.projects = data;
       },
       error => {
+        this.loading = false;
         this.errorMessage = error;
       },
       () => (this.loading = false)
-     );
+    );
   }
 
   onSaveListItem(event: any) {
@@ -40,7 +41,4 @@ export class ProjectsContainerComponent implements OnInit {
       error => (this.errorMessage = error)
     );
   }
-
-
-
 }
