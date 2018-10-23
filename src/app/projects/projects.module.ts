@@ -5,10 +5,8 @@ import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsContainerComponent } from './projects-container/projects-container.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ProjectsRoutingModule
-  ],
-  declarations: [ProjectsContainerComponent]
+  imports: [CommonModule, ProjectsRoutingModule],
+  declarations: [ProjectsContainerComponent],
+  exports: [ProjectsContainerComponent]
 })
-export class ProjectsModule { }
+export class ProjectsModule {}
