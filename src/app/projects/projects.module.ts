@@ -6,10 +6,8 @@ import { ProjectsContainerComponent } from './projects-container/projects-contai
 import { ProjectListComponent } from './project-list/project-list.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ProjectsRoutingModule
-  ],
-  declarations: [ProjectsContainerComponent, ProjectListComponent]
+  imports: [CommonModule, ProjectsRoutingModule],
+  declarations: [ProjectsContainerComponent, ProjectListComponent],
+  exports: [ProjectsContainerComponent]
 })
-export class ProjectsModule { }
+export class ProjectsModule {}
