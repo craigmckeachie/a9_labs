@@ -7,10 +7,12 @@ import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ProjectsRoutingModule
+  imports: [CommonModule, ProjectsRoutingModule],
+  declarations: [
+    ProjectsContainerComponent,
+    ProjectListComponent,
+    ProjectCardComponent
   ],
-  declarations: [ProjectsContainerComponent, ProjectListComponent, ProjectCardComponent]
+  exports: [ProjectsContainerComponent]
 })
-export class ProjectsModule { }
+export class ProjectsModule {}
