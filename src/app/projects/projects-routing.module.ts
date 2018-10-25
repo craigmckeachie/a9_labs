@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ProjectsContainerComponent} from './projects-container/projects-container.component';
+import { ProjectsContainerComponent } from './projects-container/projects-container.component';
 
-const routes: Routes = [
-  {path: 'projects', component: ProjectsContainerComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'projects'}
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProjectsRoutingModule { }
+export class ProjectsRoutingModule {}
