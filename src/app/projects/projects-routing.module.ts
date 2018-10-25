@@ -5,7 +5,6 @@ import {ProjectDetailContainerComponent} from './project-detail-container/projec
 
 const routes: Routes = [
   {path: 'projects', component: ProjectsContainerComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'projects'},
   {path: 'projects/:id', component: ProjectDetailContainerComponent},
 ];
 
