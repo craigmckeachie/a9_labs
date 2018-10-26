@@ -16,8 +16,16 @@ export class ProjectsContainerComponent implements OnInit {
   constructor(private projectService: ProjectService) {}
 
   ngOnInit() {
+    this.search('');
+  }
+
+  onSearch(term: string) {
+    this.search(term);
+  }
+
+  search(term: string) {
     this.loading = true;
-    this.projectService.list().subscribe(
+    this.projectService.listByName(term).subscribe(
       data => {
         this.projects = data;
       },
