@@ -11,7 +11,7 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
   styleUrls: ['./projects-container.component.css']
 })
 export class ProjectsContainerComponent implements OnInit, OnDestroy {
-  projects: Project[];
+  projects: Project[] = [];
   errorMessage: string;
   loading: boolean;
   private searchTerms = new Subject<string>();
