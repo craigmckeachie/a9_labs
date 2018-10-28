@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HomeContainerComponent } from './home-container.component';
 
 describe('HomeContainerComponent', () => {
@@ -8,9 +7,8 @@ describe('HomeContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [HomeContainerComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +20,17 @@ describe('HomeContainerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should render title in a h1 tag', () => {
+  //   fixture = TestBed.createComponent(HomeContainerComponent);
+  //   fixture.detectChanges();
+  //   const compiled = fixture.debugElement.nativeElement;
+  //   expect(compiled.querySelector('h1').textContent).toContain('Home');
+  // });
 });
+
+// describe('Smoke Test', () => {
+//   it('should run a passing test', () => {
+//     expect(true).toEqual(true);
+//   });
+// });
