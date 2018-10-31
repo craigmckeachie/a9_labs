@@ -20,17 +20,4 @@ describe('HomeContainerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  // it('should render title in a h1 tag', () => {
-  //   fixture = TestBed.createComponent(HomeContainerComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h1').textContent).toContain('Home');
-  // });
 });
-
-// describe('Smoke Test', () => {
-//   it('should run a passing test', () => {
-//     expect(true).toEqual(true);
-//   });
-// });
