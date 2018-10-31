@@ -19,18 +19,7 @@
 //   beforeEach(() => {
 //     fixture = TestBed.createComponent(ProjectCardComponent);
 //     component = fixture.componentInstance;
-//     (component.project = new Project(
-//       1,
-//       'Scarlet Weeknight',
-//       'Fusce quis quam eget sapien sodales iaculis. Curabitur aliquet at erat sed cursus. In hendrerit.',
-//       'assets/placeimg_500_300_arch7.jpg',
-//       5,
-//       new Date(2015, 1, 2),
-//       30100,
-//       true,
-//       false
-//     )),
-//       fixture.detectChanges();
+//     fixture.detectChanges();
 //   });
 
 //   it('should create', () => {
