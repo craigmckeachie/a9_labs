@@ -1,14 +1,15 @@
-import { browser, by, element } from 'protractor';
+import { HomePage } from './home.po';
 
 describe('Home (default)', () => {
   const expectedHeader = 'Home';
+  let page: HomePage;
 
   beforeEach(() => {
-    browser.get('');
+    page = new HomePage();
+    page.navigateTo();
   });
 
   it('should display header', () => {
-    expect(element(by.css('h1')).getText())
-    .toEqual(expectedHeader);
+    expect(page.getHeaderText()).toEqual(expectedHeader);
   });
 });
