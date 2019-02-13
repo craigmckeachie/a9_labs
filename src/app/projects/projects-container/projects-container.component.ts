@@ -19,13 +19,13 @@ export class ProjectsContainerComponent implements OnInit {
     this.loading = true;
     this.projectService.list().subscribe(
       data => {
+        this.loading = false;
         this.projects = data;
       },
       error => {
         this.loading = false;
         this.errorMessage = error;
-      },
-      () => (this.loading = false)
+      }
     );
   }
 
