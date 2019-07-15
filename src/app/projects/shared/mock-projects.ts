@@ -1,6 +1,6 @@
 import { Project } from './project.model';
 
-export const PROJECTS: Project[] = [
+export const MOCK_PROJECTS: Project[] = [
   new Project(
     1,
     'Scarlet Weeknight',
