@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {PROJECTS} from './mock-projects';
+import {MOCK_PROJECTS} from './mock-projects';
 import {Project} from './project.model';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
