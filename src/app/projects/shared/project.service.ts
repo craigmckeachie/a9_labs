@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {PROJECTS} from './mock-projects';
+import {MOCK_PROJECTS} from './mock-projects';
 import {Project} from './project.model';
 
 @Injectable({
@@ -11,6 +11,6 @@ export class ProjectService {
   constructor() { }
 
   list(): Observable<Project[]> {
-    return of(PROJECTS);
+    return of(MOCK_PROJECTS);
   }
 }
