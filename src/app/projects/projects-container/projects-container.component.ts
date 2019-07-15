@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PROJECTS} from '../shared/mock-projects';
+import {MOCK_PROJECTS} from '../shared/mock-projects';
 import {Project} from '../shared/project.model';
 
 @Component({
@@ -8,7 +8,7 @@ import {Project} from '../shared/project.model';
   styleUrls: ['./projects-container.component.css']
 })
 export class ProjectsContainerComponent implements OnInit {
-  projects: Project[] = PROJECTS;
+  projects: Project[] = MOCK_PROJECTS;
   constructor() { }
 
   ngOnInit() {
