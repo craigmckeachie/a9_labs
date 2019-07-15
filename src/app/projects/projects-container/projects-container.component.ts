@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PROJECTS} from '../shared/mock-projects';
+import {MOCK_PROJECTS} from '../shared/mock-projects';
 import {Project} from '../shared/project.model';
 import {ProjectService} from '../shared/project.service';
 
