@@ -1,17 +1,16 @@
 <h1>Projects</h1>
-<div *ngIf="loading" class="center-page">
+<div *ngIf="loading$ | async" class="center-page">
   <span class="spinner primary"></span>
   <p>Loading...</p>
 </div>
 <div class="row">
-  <div *ngIf="errorMessage" class="card large error">
+  <div *ngIf="errorMessage$ | async as errorMessage" class="card large error">
     <section>
-      <p>
-        <span class="icon-alert inverse"></span> {{errorMessage}}
-      </p>
+      <p><span class="icon-alert inverse"></span> {{ errorMessage }}</p>
     </section>
   </div>
 </div>
-
-<app-project-list [projects]="projects" (saveListItem)="onSaveListItem($event)">
-</app-project-list>
+<ng-container *ngIf="projects$ | async as projects">
+  <app-project-list [projects]="projects"> </app-project-list>
+</ng-container>
+<!-- (saveListItem)="onSaveListItem($event)" -->
