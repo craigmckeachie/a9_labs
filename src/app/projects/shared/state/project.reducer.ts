@@ -8,6 +8,7 @@ import {
   saveFail
 } from './project.actions';
 import { Project } from '../project.model';
+import { State } from 'src/app/reducers';
 
 export interface ProjectState {
   loading: boolean;
@@ -50,3 +51,8 @@ const _projectReducer = createReducer(
 export function projectReducer(state, action) {
   return _projectReducer(state, action);
 }
+
+export const getProjects = (state: State) => state.projectState.projects;
+export const getLoading = (state: State) => state.projectState.loading;
+export const getSaving = (state: State) => state.projectState.saving;
+export const getError = (state: State) => state.projectState.error;

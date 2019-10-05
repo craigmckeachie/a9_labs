@@ -3,10 +3,10 @@
   <span class="spinner primary"></span>
   <p>Loading...</p>
 </div>
-<div *ngIf="saving$ | async" class="center-page">
+<!-- <div *ngIf="saving$ | async" class="center-page">
   <span class="spinner primary"></span>
   <p>Saving...</p>
-</div>
+</div> -->
 <div class="row">
   <div *ngIf="errorMessage$ | async as errorMessage" class="card large error">
     <section>

@@ -4,6 +4,12 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { State } from 'src/app/reducers';
 import { load, save } from '../shared/state/project.actions';
+import {
+  getProjects,
+  getError,
+  getLoading,
+  getSaving
+} from '../shared/state/project.reducer';
 
 @Component({
   selector: 'app-projects-container',
@@ -19,16 +25,10 @@ export class ProjectsContainerComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    this.projects$ = this.store.pipe(
-      select(state => state.projectState.projects)
-    );
-    this.errorMessage$ = this.store.pipe(
-      select(state => state.projectState.error)
-    );
-    this.loading$ = this.store.pipe(
-      select(state => state.projectState.loading)
-    );
-    this.saving$ = this.store.pipe(select(state => state.projectState.saving));
+    this.projects$ = this.store.pipe(select(getProjects));
+    this.errorMessage$ = this.store.pipe(select(getError));
+    this.loading$ = this.store.pipe(select(getLoading));
+    this.saving$ = this.store.pipe(select(getSaving));
     this.store.dispatch(load());
   }
 

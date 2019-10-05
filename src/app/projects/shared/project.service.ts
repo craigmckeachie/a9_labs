@@ -34,7 +34,7 @@ export class ProjectService {
 
   list(): Observable<Project[]> {
     return this.http.get<Project[]>(this.projectsUrl).pipe(
-      delay(2000),
+      // delay(2000),
       catchError((error: HttpErrorResponse) => {
         console.log(error);
         return throwError('An error occurred loading the projects.');
@@ -45,7 +45,7 @@ export class ProjectService {
   put(project: Project): Observable<Project> {
     const url = this.projectsUrl + project.id;
     return this.http.put<Project>(url, project, httpOptions).pipe(
-      delay(2000),
+      // delay(2000),
       catchError((error: HttpErrorResponse) => {
         console.log(error);
         return throwError('An error occurred updating the projects.');
