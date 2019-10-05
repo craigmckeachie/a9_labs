@@ -39,37 +39,6 @@ export class ProjectEffects {
     );
   });
 
-  // @Effect()
-  // save$: Observable<Action> = this.actions$.pipe(
-  //   ofType(ProjectActionTypes.Save),
-  //   map((action: ProjectSave) => action.payload),
-  //   mergeMap(project => {
-  //     if (project.id) {
-  //       return this.projectService.put(project).pipe(
-  //         map(data => new ProjectSaveSuccess(project)),
-  //         catchError(error => of(new ProjectSaveFail(error)))
-  //       );
-  //     } else {
-  //       return this.projectService.post(project).pipe(
-  //         map((data: Project) => new ProjectSaveSuccess(data)),
-  //         catchError(error => of(new ProjectSaveFail(error)))
-  //       );
-  //     }
-  //   })
-  // );
-
-  // @Effect()
-  // delete$: Observable<Action> = this.actions$.pipe(
-  //   ofType(ProjectActionTypes.Delete),
-  //   map((action: ProjectDelete) => action.payload),
-  //   mergeMap(project => {
-  //     return this.projectService.delete(project.id).pipe(
-  //       map(data => new ProjectDeleteSuccess(project)),
-  //       catchError(error => of(new ProjectDeleteFail(error)))
-  //     );
-  //   })
-  // );
-
   constructor(
     private actions$: Actions,
     private projectService: ProjectService
