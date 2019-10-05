@@ -3,6 +3,10 @@
   <span class="spinner primary"></span>
   <p>Loading...</p>
 </div>
+<div *ngIf="saving$ | async" class="center-page">
+  <span class="spinner primary"></span>
+  <p>Saving...</p>
+</div>
 <div class="row">
   <div *ngIf="errorMessage$ | async as errorMessage" class="card large error">
     <section>
@@ -11,6 +15,9 @@
   </div>
 </div>
 <ng-container *ngIf="projects$ | async as projects">
-  <app-project-list [projects]="projects"> </app-project-list>
+  <app-project-list
+    [projects]="projects"
+    (saveListItem)="onSaveListItem($event)"
+  >
+  </app-project-list>
 </ng-container>
-<!-- (saveListItem)="onSaveListItem($event)" -->

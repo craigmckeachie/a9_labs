@@ -3,7 +3,7 @@ import { Project } from '../shared/project.model';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { State } from 'src/app/reducers';
-import { load } from '../shared/state/project.actions';
+import { load, save } from '../shared/state/project.actions';
 
 @Component({
   selector: 'app-projects-container',
@@ -14,6 +14,7 @@ export class ProjectsContainerComponent implements OnInit {
   projects$: Observable<Project[]>;
   errorMessage$: Observable<string>;
   loading$: Observable<boolean>;
+  saving$: Observable<boolean>;
 
   constructor(private store: Store<State>) {}
 
@@ -27,19 +28,12 @@ export class ProjectsContainerComponent implements OnInit {
     this.loading$ = this.store.pipe(
       select(state => state.projectState.loading)
     );
+    this.saving$ = this.store.pipe(select(state => state.projectState.saving));
     this.store.dispatch(load());
   }
 
-  // onSaveListItem(event: any) {
-  //   const project: Project = event.item;
-  //   this.projectService.put(project).subscribe(
-  //     updatedProject => {
-  //       const index = this.projects.findIndex(
-  //         element => element.id === project.id
-  //       );
-  //       this.projects[index] = project;
-  //     },
-  //     error => (this.errorMessage = error)
-  //   );
-  // }
+  onSaveListItem(event: any) {
+    const project: Project = event.item;
+    this.store.dispatch(save({ project }));
+  }
 }

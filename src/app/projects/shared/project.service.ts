@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Observable, of, throwError} from 'rxjs';
-import {PROJECTS} from './mock-projects';
-import {Project} from './project.model';
-import {environment} from '../../../environments/environment';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {catchError, delay} from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { PROJECTS } from './mock-projects';
+import { Project } from './project.model';
+import { environment } from '../../../environments/environment';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders
+} from '@angular/common/http';
+import { catchError, delay } from 'rxjs/operators';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({
@@ -16,7 +20,7 @@ const httpOptions = {
 export class ProjectService {
   private projectsUrl = environment.backendUrl + '/projects/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   find(id: number): Observable<Project> {
     const url = this.projectsUrl + id;
@@ -30,7 +34,7 @@ export class ProjectService {
 
   list(): Observable<Project[]> {
     return this.http.get<Project[]>(this.projectsUrl).pipe(
-      // delay(2000),
+      delay(2000),
       catchError((error: HttpErrorResponse) => {
         console.log(error);
         return throwError('An error occurred loading the projects.');
@@ -41,6 +45,7 @@ export class ProjectService {
   put(project: Project): Observable<Project> {
     const url = this.projectsUrl + project.id;
     return this.http.put<Project>(url, project, httpOptions).pipe(
+      delay(2000),
       catchError((error: HttpErrorResponse) => {
         console.log(error);
         return throwError('An error occurred updating the projects.');

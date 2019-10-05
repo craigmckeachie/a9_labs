@@ -10,3 +10,16 @@ export const loadFail = createAction(
   '[Project] Load Fail',
   props<{ error: any }>()
 );
+
+export const save = createAction(
+  '[Project] Save',
+  props<{ project: Project }>()
+);
+export const saveSuccess = createAction(
+  '[Project] Save Success',
+  props<{ project: Project }>()
+);
+export const saveFail = createAction(
+  '[Project] Save Fail',
+  props<{ error: any }>()
+);
