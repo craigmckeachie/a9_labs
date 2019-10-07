@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Project } from '../shared/project.model';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
@@ -14,7 +14,8 @@ import {
 @Component({
   selector: 'app-projects-container',
   templateUrl: './projects-container.component.html',
-  styleUrls: ['./projects-container.component.css']
+  styleUrls: ['./projects-container.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectsContainerComponent implements OnInit {
   projects$: Observable<Project[]>;
