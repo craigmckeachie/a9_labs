@@ -26,7 +26,9 @@ export class ProjectsContainerComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    this.projects$ = this.store.pipe(select(getProjects));
+    this.projects$ = this.store.pipe(
+      select(state => state.projectState.projects)
+    );
     this.errorMessage$ = this.store.pipe(select(getError));
     this.loading$ = this.store.pipe(select(getLoading));
     this.saving$ = this.store.pipe(select(getSaving));

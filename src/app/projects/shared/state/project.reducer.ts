@@ -35,7 +35,7 @@ const _projectReducer = createReducer(
   on(load, state => ({ ...state, loading: true })),
   on(loadSuccess, (state, { projects }) => ({
     ...state,
-    projects,
+    projects: projects,
     loading: false,
     saving: false
   })),
